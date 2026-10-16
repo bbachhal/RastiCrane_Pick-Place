@@ -1,0 +1,149 @@
+{
+  "geometry": {
+    "a1_mm": 80.0,
+    "a2_mm": 80.0,
+    "shoulderForward_mm": 12.0,
+    "shoulderHeight_mm": 60.0,
+    "toolForward_mm": 35.0,
+    "toolVertical_mm": -6.5,
+    "toolSideways_mm": 0.0
+  },
+  "calibration": {
+    "M1": {
+      "pulses": [
+        1500,
+        2000,
+        2500
+      ],
+      "angles_deg": [
+        25.38,
+        19.074,
+        12.768
+      ],
+      "source": "fitted from 3 magnet touches, residual RMS 8.10 mm"
+    },
+    "M2": {
+      "pulses": [
+        1500,
+        2000,
+        2500
+      ],
+      "angles_deg": [
+        -103.43,
+        -1.855,
+        99.721
+      ],
+      "source": "fitted from 3 magnet touches, residual RMS 8.10 mm"
+    },
+    "BASE": {
+      "pulses": [
+        1300,
+        1900,
+        2500
+      ],
+      "angles_deg": [
+        -114.75,
+        -13.01,
+        88.74
+      ],
+      "source": "measured 2026-10-14 by sighting, 5.897 us/deg, zero at 1976.7 us"
+    }
+  },
+  "limits": {
+    "manualMin": [
+      1500,
+      1500,
+      1250
+    ],
+    "manualMax": [
+      2500,
+      2500,
+      2500
+    ],
+    "cartMin": [
+      1500,
+      1500,
+      1300
+    ],
+    "cartMax": [
+      2000,
+      2000,
+      2500
+    ],
+    "minTestHeight_mm": 40.0,
+    "maxCartesianStep_mm": 10.0
+  },
+  "poses": {
+    "home": [
+      1500,
+      1500,
+      1900
+    ],
+    "ready": [
+      1950,
+      1950,
+      1950
+    ]
+  },
+  "visionTargets": [
+    {
+      "name": "ink surface center",
+      "xyz_mm": [
+        -14.5171,
+        -106.389,
+        12.3
+      ],
+      "tagId": 2
+    },
+    {
+      "name": "paper stamp point",
+      "xyz_mm": [
+        22.9626,
+        134.4341,
+        0.1
+      ],
+      "tagId": 3
+    }
+  ],
+  "baseTag": {
+    "id": 5,
+    "centerRobot_mm": [
+      -130,
+      0,
+      4
+    ],
+    "yawRobot_deg": 180
+  },
+  "notes": "Robot frame: origin on the table under the base yaw axis, +Z up. Angles are [shoulder, forearm ABSOLUTE, yaw] for a parallelogram linkage. M1/M2 angle tables are photo estimates; anything computed outside their pulse span is extrapolation and is labelled as such.",
+  "vision": {
+    "tagSize_mm": 50,
+    "baseTagId": 5,
+    "holderEndTags": [
+      0,
+      1
+    ],
+    "homeDefinition": "0 deg = direction from the centre of tag 5 (under the robot base) to the middle of the stamp holder arc. The arc runs from tag 0's top-left corner to tag 1's top-right corner, with the radius taken from CAD.",
+    "taggedTargets": {
+      "ink": {
+        "tagId": 2,
+        "offsetTag_mm": [
+          31.283,
+          72.719,
+          8.3
+        ],
+        "height_mm": 12.3,
+        "source": "clicked on the dashboard photo"
+      },
+      "paper": {
+        "tagId": 3,
+        "offsetTag_mm": [
+          2.128,
+          -2.04,
+          -3.9
+        ],
+        "height_mm": 0.1,
+        "source": "clicked on the dashboard photo"
+      }
+    }
+  }
+}

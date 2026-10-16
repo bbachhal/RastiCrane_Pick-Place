@@ -1,0 +1,202 @@
+{
+  "sourcePhoto": "C:\\Users\\bachh\\Downloads\\workingset.JPG",
+  "matlabVersion": "24.2.0.2740171 (R2024b) Update 1",
+  "runFolder": "results\\20261009_131339_820",
+  "status": "DETECTION_ONLY",
+  "cameraCalibrated": true,
+  "notes": [
+    "Set cornerOrder from the numbered overlay: decoded BL,BR,TR,TL."
+  ],
+  "config": {
+    "tagFamily": "tag36h11",
+    "tagSize_mm": 50,
+    "calibrationFile": "calibration\\phoneCalibration.mat",
+    "outputRoot": "results",
+    "cornerOrder": [],
+    "baseTag": {
+      "id": 0,
+      "centerRobot_mm": [
+        null,
+        null,
+        null
+      ],
+      "yawRobot_deg": null
+    },
+    "maxPoseFit_px": 3,
+    "maxTagSizeError_mm": 3,
+    "maxTagShapeError_mm": 3,
+    "objects": [
+      {
+        "name": "inkSurfaceCenter",
+        "id": 2,
+        "tagHeight_mm": null,
+        "targetOffsetTag_mm": [
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "name": "paperCenter",
+        "id": 3,
+        "tagHeight_mm": null,
+        "targetOffsetTag_mm": [
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "name": "checkTag",
+        "id": 1,
+        "tagHeight_mm": null,
+        "targetOffsetTag_mm": [
+          null,
+          null,
+          null
+        ]
+      }
+    ],
+    "cad": {
+      "paperSize_mm": [
+        215.9,
+        279.4
+      ],
+      "paperTop_mm": 0.1,
+      "inkFoamSize_mm": [
+        110,
+        70
+      ],
+      "inkSurface_mm": 5,
+      "mountSize_mm": [
+        80,
+        80,
+        3
+      ],
+      "rackTop_mm": 36.5,
+      "upperArm_mm": 80,
+      "forearm_mm": 80,
+      "shoulderForward_mm": 11.991791,
+      "shoulderAboveArmUnderside_mm": 54.98273
+    },
+    "ik": {
+      "upperArm_mm": 80,
+      "forearm_mm": 80,
+      "shoulderForward_mm": 12,
+      "shoulderHeight_mm": 60,
+      "toolForward_mm": 35,
+      "toolVertical_mm": -6.5,
+      "toolSideways_mm": 0,
+      "pulseFit_us": [
+        [
+          1500,
+          1900,
+          2000
+        ],
+        [
+          1500,
+          1900,
+          2000
+        ],
+        [
+          1900,
+          1950,
+          2000
+        ]
+      ],
+      "angleFit_deg": [
+        [
+          89,
+          61,
+          53
+        ],
+        [
+          -68,
+          -35,
+          -27
+        ],
+        [
+          0,
+          8,
+          17
+        ]
+      ],
+      "cartMin_us": [
+        1900,
+        1900,
+        1900
+      ],
+      "cartMax_us": [
+        2000,
+        2000,
+        2000
+      ],
+      "minHeight_mm": 40
+    }
+  },
+  "objects": [],
+  "tagIds": [
+    0,
+    1,
+    2,
+    5
+  ],
+  "cornerUV_px": [
+    [
+      [
+        1697.454711914063,
+        2233.379150390625,
+        3124.4736328125,
+        2174.0993652343745
+      ],
+      [
+        1144.3267822265627,
+        1084.408325195313,
+        1355.5819091796873,
+        2440.15234375
+      ]
+    ],
+    [
+      [
+        2004.0765380859373,
+        2445.6970214843759,
+        3105.040283203125,
+        2167.434814453125
+      ],
+      [
+        1002.884094238281,
+        1348.7065429687502,
+        1692.0032958984373,
+        2100.863525390625
+      ]
+    ],
+    [
+      [
+        1862.0046386718743,
+        2722.270263671875,
+        3432.1296386718755,
+        1829.8814697265627
+      ],
+      [
+        681.9156494140625,
+        1131.3345947265623,
+        1706.1566162109377,
+        2110.355224609375
+      ]
+    ],
+    [
+      [
+        1543.1199951171875,
+        2505.2465820312491,
+        3449.4775390625,
+        1837.331298828125
+      ],
+      [
+        824.95709228515636,
+        860.892822265625,
+        1373.4228515625,
+        2447.0048828125005
+      ]
+    ]
+  ]
+}

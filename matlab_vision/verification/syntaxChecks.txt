@@ -1,0 +1,3 @@
+MISS_HIT MATLAB static parser/linter: 14 .m files, no issues.
+No MATLAB installation, Computer Vision Toolbox runtime, USB device, or new setup photo was available in the build environment.
+Run demoMath and runPhoto in your MATLAB installation.

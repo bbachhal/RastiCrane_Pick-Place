@@ -1,0 +1,2878 @@
+{
+  "points": [
+    {
+      "name": "tour_B_slot2",
+      "kind": "hover",
+      "pulses": [
+        1909,
+        1873,
+        2477
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "hover over B in slot 2"
+    },
+    {
+      "name": "tour_I_slot3",
+      "kind": "hover",
+      "pulses": [
+        1909,
+        1873,
+        2428
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "hover over I in slot 3"
+    },
+    {
+      "name": "tour_R_slot4",
+      "kind": "hover",
+      "pulses": [
+        1909,
+        1873,
+        2379
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "hover over R in slot 4"
+    },
+    {
+      "name": "tour hover pose",
+      "kind": "hover",
+      "pulses": [
+        1750,
+        2250,
+        2204
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "raised for clearance check"
+    },
+    {
+      "name": "B_down_01_z121",
+      "kind": "hover",
+      "pulses": [
+        1751,
+        2263,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        121
+      ],
+      "note": "model height 121 mm at reach 152 mm | base trimmed +15 us"
+    },
+    {
+      "name": "B_down_02_z112",
+      "kind": "hover",
+      "pulses": [
+        1765,
+        2185,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        112
+      ],
+      "note": "model height 112 mm at reach 152 mm | base trimmed +15 us"
+    },
+    {
+      "name": "B_down_03_z103",
+      "kind": "hover",
+      "pulses": [
+        1790,
+        2109,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        103
+      ],
+      "note": "model height 103 mm at reach 152 mm | base trimmed +15 us"
+    },
+    {
+      "name": "B_down_04_z94",
+      "kind": "hover",
+      "pulses": [
+        1823,
+        2035,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        94
+      ],
+      "note": "model height 94 mm at reach 152 mm | base trimmed +15 us"
+    },
+    {
+      "name": "B_down_05_z85",
+      "kind": "hover",
+      "pulses": [
+        1865,
+        1962,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        85
+      ],
+      "note": "model height 85 mm at reach 152 mm | base trimmed +15 us"
+    },
+    {
+      "name": "B_down_06_z76",
+      "kind": "hover",
+      "pulses": [
+        1913,
+        1891,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        76
+      ],
+      "note": "model height 76 mm at reach 152 mm | base trimmed +15 us"
+    },
+    {
+      "name": "B_down_07_z67",
+      "kind": "hover",
+      "pulses": [
+        1964,
+        1824,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        67
+      ],
+      "note": "model height 67 mm at reach 152 mm | base trimmed +15 us"
+    },
+    {
+      "name": "B_down_08_z58",
+      "kind": "hover",
+      "pulses": [
+        2020,
+        1761,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        58
+      ],
+      "note": "model height 58 mm at reach 152 mm | base trimmed +15 us"
+    },
+    {
+      "name": "B_down_09_z52",
+      "kind": "hover",
+      "pulses": [
+        2060,
+        1721,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        52
+      ],
+      "note": "model height 52 mm at reach 152 mm | base trimmed +15 us"
+    },
+    {
+      "name": "tour_home_start",
+      "kind": "hover",
+      "pulses": [
+        1750,
+        2250,
+        2204
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "home, arm at hover height"
+    },
+    {
+      "name": "tour_slot2",
+      "kind": "hover",
+      "pulses": [
+        1750,
+        2250,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "hover over slot 2"
+    },
+    {
+      "name": "tour_slot3",
+      "kind": "hover",
+      "pulses": [
+        1750,
+        2250,
+        2437
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "hover over slot 3"
+    },
+    {
+      "name": "tour_slot4",
+      "kind": "hover",
+      "pulses": [
+        1750,
+        2250,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "hover over slot 4"
+    },
+    {
+      "name": "tour_home_end",
+      "kind": "hover",
+      "pulses": [
+        1750,
+        2250,
+        2204
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "back to home"
+    },
+    {
+      "name": "TEST_hover",
+      "note": "over the target, at height",
+      "pulses": [
+        1750,
+        2250,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "TEST_down_01",
+      "pulses": [
+        1792,
+        2170,
+        1500
+      ],
+      "note": "20% of the way down",
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "TEST_down_02",
+      "pulses": [
+        1834,
+        2090,
+        1500
+      ],
+      "note": "40% of the way down",
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "TEST_down_03",
+      "pulses": [
+        1876,
+        2010,
+        1500
+      ],
+      "note": "60% of the way down",
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "TEST_down_04",
+      "pulses": [
+        1918,
+        1930,
+        1500
+      ],
+      "note": "80% of the way down",
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "TEST_contact",
+      "note": "contact",
+      "pulses": [
+        1960,
+        1850,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "Ink_press",
+      "kind": "ink",
+      "pulses": [
+        1743,
+        1521,
+        1689
+      ],
+      "xyz": [
+        71.33125155233932,
+        -81.44823255831662,
+        4.897280633232469
+      ],
+      "radius": 108.26801021029591,
+      "azimuth": -48.78856666666667,
+      "extrapolated": false,
+      "saved": "2026-10-16T03:18:36.696Z"
+    },
+    {
+      "name": "ink_hover",
+      "note": "over the target, at height",
+      "pulses": [
+        1750,
+        2250,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "ink_down_01",
+      "pulses": [
+        1749,
+        2104,
+        1689
+      ],
+      "note": "20% of the way down",
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "ink_down_02",
+      "pulses": [
+        1747,
+        1958,
+        1689
+      ],
+      "note": "40% of the way down",
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "ink_down_03",
+      "pulses": [
+        1746,
+        1813,
+        1689
+      ],
+      "note": "60% of the way down",
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "ink_down_04",
+      "pulses": [
+        1744,
+        1667,
+        1689
+      ],
+      "note": "80% of the way down",
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "ink_contact",
+      "note": "contact",
+      "pulses": [
+        1743,
+        1521,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "ink_press_deep",
+      "kind": "approach",
+      "pulses": [
+        1742,
+        1491,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "30 us past contact for a fuller ink load"
+    },
+    {
+      "name": "Paper_Hover",
+      "kind": "paper",
+      "pulses": [
+        1750,
+        2250,
+        1444
+      ],
+      "xyz": [
+        -1.0071922920376322,
+        -173.60776192483348,
+        144.07751514690676
+      ],
+      "radius": 173.6106835331939,
+      "azimuth": -90.3324,
+      "extrapolated": false,
+      "saved": "2026-10-16T03:39:54.494Z"
+    },
+    {
+      "name": "Paper_Press",
+      "kind": "paper",
+      "pulses": [
+        2139,
+        1661,
+        1444
+      ],
+      "xyz": [
+        -0.8689585617742571,
+        -149.78068468916996,
+        1.803277678473762
+      ],
+      "radius": 149.78320531667973,
+      "azimuth": -90.3324,
+      "extrapolated": false,
+      "saved": "2026-10-16T03:40:24.218Z"
+    },
+    {
+      "name": "paper_hover",
+      "note": "over the target, at height",
+      "pulses": [
+        1750,
+        2250,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "paper_down_01",
+      "pulses": [
+        1828,
+        2132,
+        1444
+      ],
+      "note": "20% of the way down",
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "paper_down_02",
+      "pulses": [
+        1906,
+        2014,
+        1444
+      ],
+      "note": "40% of the way down",
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "paper_down_03",
+      "pulses": [
+        1983,
+        1897,
+        1444
+      ],
+      "note": "60% of the way down",
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "paper_down_04",
+      "pulses": [
+        2061,
+        1779,
+        1444
+      ],
+      "note": "80% of the way down",
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "paper_contact",
+      "note": "contact",
+      "pulses": [
+        2139,
+        1661,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "kind": "approach"
+    },
+    {
+      "name": "Bp_release",
+      "kind": "program",
+      "pulses": [
+        1853,
+        1871,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "pull back toward the robot"
+    },
+    {
+      "name": "Ip_release",
+      "kind": "program",
+      "pulses": [
+        1853,
+        1871,
+        2437
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "pull back toward the robot"
+    },
+    {
+      "name": "Rp_release",
+      "kind": "program",
+      "pulses": [
+        1853,
+        1871,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "pull back toward the robot"
+    },
+    {
+      "name": "ink_dab_mid",
+      "kind": "program",
+      "pulses": [
+        1743,
+        1491,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "press into the pad"
+    },
+    {
+      "name": "ink_dab_left",
+      "kind": "program",
+      "pulses": [
+        1743,
+        1491,
+        1679
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rock one way"
+    },
+    {
+      "name": "ink_dab_right",
+      "kind": "program",
+      "pulses": [
+        1743,
+        1491,
+        1699
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rock the other way"
+    },
+    {
+      "name": "ink_dab_deep",
+      "kind": "program",
+      "pulses": [
+        1743,
+        1476,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "deepest dab"
+    },
+    {
+      "name": "Bp_press_1",
+      "kind": "program",
+      "pulses": [
+        2147,
+        1653,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "firmer"
+    },
+    {
+      "name": "Bp_press_2",
+      "kind": "program",
+      "pulses": [
+        2154,
+        1646,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "firmest"
+    },
+    {
+      "name": "Ip_press_1",
+      "kind": "program",
+      "pulses": [
+        2147,
+        1653,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "firmer"
+    },
+    {
+      "name": "Ip_press_2",
+      "kind": "program",
+      "pulses": [
+        2154,
+        1646,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "firmest"
+    },
+    {
+      "name": "Rp_press_1",
+      "kind": "program",
+      "pulses": [
+        2147,
+        1653,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "firmer"
+    },
+    {
+      "name": "Rp_press_2",
+      "kind": "program",
+      "pulses": [
+        2154,
+        1646,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "firmest"
+    },
+    {
+      "name": "ink_roll_back",
+      "kind": "program",
+      "pulses": [
+        1665,
+        1416,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "roll the face back 5 deg"
+    },
+    {
+      "name": "Bp_rack_01",
+      "kind": "program",
+      "pulses": [
+        1751,
+        2263,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rack rung 1"
+    },
+    {
+      "name": "Bp_rack_02",
+      "kind": "program",
+      "pulses": [
+        1765,
+        2185,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rack rung 2"
+    },
+    {
+      "name": "Bp_rack_03",
+      "kind": "program",
+      "pulses": [
+        1790,
+        2109,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rack rung 3"
+    },
+    {
+      "name": "Bp_rack_04",
+      "kind": "program",
+      "pulses": [
+        1823,
+        2035,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rack rung 4"
+    },
+    {
+      "name": "Bp_rack_05",
+      "kind": "program",
+      "pulses": [
+        1865,
+        1962,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rack rung 5"
+    },
+    {
+      "name": "Bp_paper_01",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 1"
+    },
+    {
+      "name": "Bp_paper_02",
+      "kind": "program",
+      "pulses": [
+        1828,
+        2132,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 2"
+    },
+    {
+      "name": "Bp_paper_03",
+      "kind": "program",
+      "pulses": [
+        1906,
+        2014,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 3"
+    },
+    {
+      "name": "Bp_paper_04",
+      "kind": "program",
+      "pulses": [
+        1983,
+        1897,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 4"
+    },
+    {
+      "name": "Bp_paper_05",
+      "kind": "program",
+      "pulses": [
+        2061,
+        1779,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 5"
+    },
+    {
+      "name": "Bp_paper_06",
+      "kind": "program",
+      "pulses": [
+        2139,
+        1661,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 6"
+    },
+    {
+      "name": "Bx_to_rack_up",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2204
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rise"
+    },
+    {
+      "name": "Bx_to_rack_over",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "swing across high"
+    },
+    {
+      "name": "Bx_to_rack_down",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "down to hover"
+    },
+    {
+      "name": "Bx_to_ink_up",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rise"
+    },
+    {
+      "name": "Bx_to_ink_over",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "swing across high"
+    },
+    {
+      "name": "Bx_to_ink_down",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "down to hover"
+    },
+    {
+      "name": "Bx_to_paper_up",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rise"
+    },
+    {
+      "name": "Bx_to_paper_over",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "swing across high"
+    },
+    {
+      "name": "Bx_to_paper_down",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "down to hover"
+    },
+    {
+      "name": "Bx_back_rack_up",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rise"
+    },
+    {
+      "name": "Bx_back_rack_over",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "swing across high"
+    },
+    {
+      "name": "Bx_back_rack_down",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "down to hover"
+    },
+    {
+      "name": "Bx_home_up",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rise"
+    },
+    {
+      "name": "Bx_home_over",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2204
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "swing across high"
+    },
+    {
+      "name": "Bx_home_down",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        2204
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "down to hover"
+    },
+    {
+      "name": "Ip_rack_01",
+      "kind": "program",
+      "pulses": [
+        1751,
+        2263,
+        2437
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rack rung 1"
+    },
+    {
+      "name": "Ip_rack_02",
+      "kind": "program",
+      "pulses": [
+        1765,
+        2185,
+        2437
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rack rung 2"
+    },
+    {
+      "name": "Ip_rack_03",
+      "kind": "program",
+      "pulses": [
+        1790,
+        2109,
+        2437
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rack rung 3"
+    },
+    {
+      "name": "Ip_rack_04",
+      "kind": "program",
+      "pulses": [
+        1823,
+        2035,
+        2437
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rack rung 4"
+    },
+    {
+      "name": "Ip_rack_05",
+      "kind": "program",
+      "pulses": [
+        1865,
+        1962,
+        2437
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rack rung 5"
+    },
+    {
+      "name": "Ip_paper_01",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 1"
+    },
+    {
+      "name": "Ip_paper_02",
+      "kind": "program",
+      "pulses": [
+        1828,
+        2132,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 2"
+    },
+    {
+      "name": "Ip_paper_03",
+      "kind": "program",
+      "pulses": [
+        1906,
+        2014,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 3"
+    },
+    {
+      "name": "Ip_paper_04",
+      "kind": "program",
+      "pulses": [
+        1983,
+        1897,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 4"
+    },
+    {
+      "name": "Ip_paper_05",
+      "kind": "program",
+      "pulses": [
+        2061,
+        1779,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 5"
+    },
+    {
+      "name": "Ip_paper_06",
+      "kind": "program",
+      "pulses": [
+        2139,
+        1661,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 6"
+    },
+    {
+      "name": "Ix_to_rack_up",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2204
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rise"
+    },
+    {
+      "name": "Ix_to_rack_over",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2437
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "swing across high"
+    },
+    {
+      "name": "Ix_to_rack_down",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        2437
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "down to hover"
+    },
+    {
+      "name": "Ix_to_ink_up",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2437
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rise"
+    },
+    {
+      "name": "Ix_to_ink_over",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "swing across high"
+    },
+    {
+      "name": "Ix_to_ink_down",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "down to hover"
+    },
+    {
+      "name": "Ix_to_paper_up",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rise"
+    },
+    {
+      "name": "Ix_to_paper_over",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "swing across high"
+    },
+    {
+      "name": "Ix_to_paper_down",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "down to hover"
+    },
+    {
+      "name": "Ix_back_rack_up",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rise"
+    },
+    {
+      "name": "Ix_back_rack_over",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2437
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "swing across high"
+    },
+    {
+      "name": "Ix_back_rack_down",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        2437
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "down to hover"
+    },
+    {
+      "name": "Ix_home_up",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2437
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rise"
+    },
+    {
+      "name": "Ix_home_over",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2204
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "swing across high"
+    },
+    {
+      "name": "Ix_home_down",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        2204
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "down to hover"
+    },
+    {
+      "name": "Rp_rack_01",
+      "kind": "program",
+      "pulses": [
+        1751,
+        2263,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rack rung 1"
+    },
+    {
+      "name": "Rp_rack_02",
+      "kind": "program",
+      "pulses": [
+        1765,
+        2185,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rack rung 2"
+    },
+    {
+      "name": "Rp_rack_03",
+      "kind": "program",
+      "pulses": [
+        1790,
+        2109,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rack rung 3"
+    },
+    {
+      "name": "Rp_rack_04",
+      "kind": "program",
+      "pulses": [
+        1823,
+        2035,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rack rung 4"
+    },
+    {
+      "name": "Rp_rack_05",
+      "kind": "program",
+      "pulses": [
+        1865,
+        1962,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rack rung 5"
+    },
+    {
+      "name": "Rp_paper_01",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 1"
+    },
+    {
+      "name": "Rp_paper_02",
+      "kind": "program",
+      "pulses": [
+        1828,
+        2132,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 2"
+    },
+    {
+      "name": "Rp_paper_03",
+      "kind": "program",
+      "pulses": [
+        1906,
+        2014,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 3"
+    },
+    {
+      "name": "Rp_paper_04",
+      "kind": "program",
+      "pulses": [
+        1983,
+        1897,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 4"
+    },
+    {
+      "name": "Rp_paper_05",
+      "kind": "program",
+      "pulses": [
+        2061,
+        1779,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 5"
+    },
+    {
+      "name": "Rp_paper_06",
+      "kind": "program",
+      "pulses": [
+        2139,
+        1661,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "paper rung 6"
+    },
+    {
+      "name": "Rx_to_rack_up",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2204
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rise"
+    },
+    {
+      "name": "Rx_to_rack_over",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "swing across high"
+    },
+    {
+      "name": "Rx_to_rack_down",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "down to hover"
+    },
+    {
+      "name": "Rx_to_ink_up",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rise"
+    },
+    {
+      "name": "Rx_to_ink_over",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "swing across high"
+    },
+    {
+      "name": "Rx_to_ink_down",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "down to hover"
+    },
+    {
+      "name": "Rx_to_paper_up",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rise"
+    },
+    {
+      "name": "Rx_to_paper_over",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "swing across high"
+    },
+    {
+      "name": "Rx_to_paper_down",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "down to hover"
+    },
+    {
+      "name": "Rx_back_rack_up",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rise"
+    },
+    {
+      "name": "Rx_back_rack_over",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "swing across high"
+    },
+    {
+      "name": "Rx_back_rack_down",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "down to hover"
+    },
+    {
+      "name": "Rx_home_up",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "rise"
+    },
+    {
+      "name": "Rx_home_over",
+      "kind": "program",
+      "pulses": [
+        1650,
+        2400,
+        2204
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "swing across high"
+    },
+    {
+      "name": "Rx_home_down",
+      "kind": "program",
+      "pulses": [
+        1750,
+        2250,
+        2204
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "down to hover"
+    },
+    {
+      "name": "ink_roll_mid",
+      "kind": "program",
+      "pulses": [
+        1783,
+        1500,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "press 1.2 mm deeper, stays on the pad"
+    },
+    {
+      "name": "ink_roll_left",
+      "kind": "program",
+      "pulses": [
+        1783,
+        1500,
+        1679
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "shift 3 mm across the pad"
+    },
+    {
+      "name": "ink_roll_right",
+      "kind": "program",
+      "pulses": [
+        1783,
+        1500,
+        1699
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "shift 3 mm back"
+    },
+    {
+      "name": "ink_roll_fwd",
+      "kind": "program",
+      "pulses": [
+        1783,
+        1500,
+        1689
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "unused, same as mid"
+    },
+    {
+      "name": "Bp_press_mid",
+      "kind": "program",
+      "pulses": [
+        2164,
+        1636,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "firm press, straight down"
+    },
+    {
+      "name": "Bp_press_fwd",
+      "kind": "program",
+      "pulses": [
+        2159,
+        1641,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "slightly lighter, second contact"
+    },
+    {
+      "name": "Bp_press_back",
+      "kind": "program",
+      "pulses": [
+        2164,
+        1636,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "firm again"
+    },
+    {
+      "name": "Ip_press_mid",
+      "kind": "program",
+      "pulses": [
+        2164,
+        1636,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "firm press, straight down"
+    },
+    {
+      "name": "Ip_press_fwd",
+      "kind": "program",
+      "pulses": [
+        2159,
+        1641,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "slightly lighter, second contact"
+    },
+    {
+      "name": "Ip_press_back",
+      "kind": "program",
+      "pulses": [
+        2164,
+        1636,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "firm again"
+    },
+    {
+      "name": "Rp_press_mid",
+      "kind": "program",
+      "pulses": [
+        2164,
+        1636,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "firm press, straight down"
+    },
+    {
+      "name": "Rp_press_fwd",
+      "kind": "program",
+      "pulses": [
+        2159,
+        1641,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "slightly lighter, second contact"
+    },
+    {
+      "name": "Rp_press_back",
+      "kind": "program",
+      "pulses": [
+        2164,
+        1636,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "firm again"
+    },
+    {
+      "name": "Bp_press_c",
+      "kind": "program",
+      "pulses": [
+        2159,
+        1641,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "press centre"
+    },
+    {
+      "name": "Bp_lift_l",
+      "kind": "program",
+      "pulses": [
+        2099,
+        1701,
+        1436
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "lift clear, step left"
+    },
+    {
+      "name": "Bp_press_l",
+      "kind": "program",
+      "pulses": [
+        2159,
+        1641,
+        1436
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "press left"
+    },
+    {
+      "name": "Bp_lift_r",
+      "kind": "program",
+      "pulses": [
+        2099,
+        1701,
+        1452
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "lift clear, step right"
+    },
+    {
+      "name": "Bp_press_r",
+      "kind": "program",
+      "pulses": [
+        2159,
+        1641,
+        1452
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "press right"
+    },
+    {
+      "name": "Bp_lift_c",
+      "kind": "program",
+      "pulses": [
+        2099,
+        1701,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "lift clear, back to centre"
+    },
+    {
+      "name": "Bp_press_c2",
+      "kind": "program",
+      "pulses": [
+        2159,
+        1641,
+        1444
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "final press centre"
+    },
+    {
+      "name": "Rp_press_c",
+      "kind": "program",
+      "pulses": [
+        2159,
+        1641,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "press centre"
+    },
+    {
+      "name": "Rp_lift_l",
+      "kind": "program",
+      "pulses": [
+        2099,
+        1701,
+        1519
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "lift clear, step left"
+    },
+    {
+      "name": "Rp_press_l",
+      "kind": "program",
+      "pulses": [
+        2159,
+        1641,
+        1519
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "press left"
+    },
+    {
+      "name": "Rp_lift_r",
+      "kind": "program",
+      "pulses": [
+        2099,
+        1701,
+        1535
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "lift clear, step right"
+    },
+    {
+      "name": "Rp_press_r",
+      "kind": "program",
+      "pulses": [
+        2159,
+        1641,
+        1535
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "press right"
+    },
+    {
+      "name": "Rp_lift_c",
+      "kind": "program",
+      "pulses": [
+        2099,
+        1701,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "lift clear, back to centre"
+    },
+    {
+      "name": "Rp_press_c2",
+      "kind": "program",
+      "pulses": [
+        2159,
+        1641,
+        1527
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "final press centre"
+    },
+    {
+      "name": "Ip_press_c",
+      "kind": "program",
+      "pulses": [
+        2159,
+        1641,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "press centre"
+    },
+    {
+      "name": "Ip_press_c2",
+      "kind": "program",
+      "pulses": [
+        2159,
+        1641,
+        1500
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "hold"
+    },
+    {
+      "name": "B_down_06b_grab",
+      "kind": "program",
+      "pulses": [
+        1958,
+        1838,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "grab pose, lowered 3.0 mm"
+    },
+    {
+      "name": "Bp_rack_07",
+      "kind": "program",
+      "pulses": [
+        1958,
+        1838,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "grab pose, lowered 3.0 mm"
+    },
+    {
+      "name": "Ip_rack_07",
+      "kind": "program",
+      "pulses": [
+        1958,
+        1838,
+        2437
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "grab pose, lowered 3.0 mm"
+    },
+    {
+      "name": "Bp_wipe_5",
+      "kind": "program",
+      "pulses": [
+        1640,
+        1658,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe at seat depth, stage 5"
+    },
+    {
+      "name": "Bp_wipe_6",
+      "kind": "program",
+      "pulses": [
+        1580,
+        1645,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe at seat depth, stage 6"
+    },
+    {
+      "name": "Bp_wipe_7",
+      "kind": "program",
+      "pulses": [
+        1520,
+        1638,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe at seat depth, stage 7"
+    },
+    {
+      "name": "Ip_wipe_5",
+      "kind": "program",
+      "pulses": [
+        1640,
+        1658,
+        2445
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe at seat depth, stage 5"
+    },
+    {
+      "name": "Ip_wipe_6",
+      "kind": "program",
+      "pulses": [
+        1580,
+        1645,
+        2429
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe at seat depth, stage 6"
+    },
+    {
+      "name": "Ip_wipe_7",
+      "kind": "program",
+      "pulses": [
+        1520,
+        1638,
+        2445
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe at seat depth, stage 7"
+    },
+    {
+      "name": "Rp_wipe_5",
+      "kind": "program",
+      "pulses": [
+        1640,
+        1658,
+        2396
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe at seat depth, stage 5"
+    },
+    {
+      "name": "Rp_wipe_6",
+      "kind": "program",
+      "pulses": [
+        1580,
+        1645,
+        2380
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe at seat depth, stage 6"
+    },
+    {
+      "name": "Rp_wipe_7",
+      "kind": "program",
+      "pulses": [
+        1520,
+        1638,
+        2396
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe at seat depth, stage 7"
+    },
+    {
+      "name": "Bp_rack_06",
+      "kind": "program",
+      "pulses": [
+        1939,
+        1856,
+        2487
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "seat: in the pocket but not wedged"
+    },
+    {
+      "name": "Ip_rack_06",
+      "kind": "program",
+      "pulses": [
+        1939,
+        1856,
+        2437
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "seat: in the pocket but not wedged"
+    },
+    {
+      "name": "Rp_rack_06",
+      "kind": "program",
+      "pulses": [
+        1939,
+        1856,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "seat: in the pocket but not wedged"
+    },
+    {
+      "name": "Ip_wipe_1",
+      "kind": "program",
+      "pulses": [
+        1873,
+        1816,
+        2434
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe 1, base swept -3 us toward the rack centre"
+    },
+    {
+      "name": "Ip_wipe_2",
+      "kind": "program",
+      "pulses": [
+        1818,
+        1790,
+        2431
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe 2, base swept -6 us toward the rack centre"
+    },
+    {
+      "name": "Ip_wipe_3",
+      "kind": "program",
+      "pulses": [
+        1755,
+        1762,
+        2428
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe 3, base swept -9 us toward the rack centre"
+    },
+    {
+      "name": "Ip_wipe_4",
+      "kind": "program",
+      "pulses": [
+        1698,
+        1742,
+        2425
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe 4, base swept -12 us toward the rack centre"
+    },
+    {
+      "name": "Rp_wipe_1",
+      "kind": "program",
+      "pulses": [
+        1873,
+        1816,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe 1, base swept +0 us toward the rack centre"
+    },
+    {
+      "name": "Rp_wipe_2",
+      "kind": "program",
+      "pulses": [
+        1818,
+        1790,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe 2, base swept +0 us toward the rack centre"
+    },
+    {
+      "name": "Rp_wipe_3",
+      "kind": "program",
+      "pulses": [
+        1755,
+        1762,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe 3, base swept +0 us toward the rack centre"
+    },
+    {
+      "name": "Rp_wipe_4",
+      "kind": "program",
+      "pulses": [
+        1698,
+        1742,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe 4, base swept +0 us toward the rack centre"
+    },
+    {
+      "name": "Bp_wipe_1",
+      "kind": "program",
+      "pulses": [
+        1873,
+        1816,
+        2476
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe 1, base swept -11 us"
+    },
+    {
+      "name": "Bp_wipe_2",
+      "kind": "program",
+      "pulses": [
+        1818,
+        1790,
+        2465
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe 2, base swept -22 us"
+    },
+    {
+      "name": "Bp_wipe_3",
+      "kind": "program",
+      "pulses": [
+        1755,
+        1762,
+        2454
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe 3, base swept -33 us"
+    },
+    {
+      "name": "Bp_wipe_4",
+      "kind": "program",
+      "pulses": [
+        1698,
+        1742,
+        2443
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "wipe 4, base swept -44 us"
+    },
+    {
+      "name": "Rp_rack_07",
+      "kind": "program",
+      "pulses": [
+        1978,
+        1818,
+        2388
+      ],
+      "xyz": [
+        0,
+        0,
+        0
+      ],
+      "note": "R grab, 3 mm lower than B and I"
+    },
+    {
+      "name": "axis_mark_r120",
+      "kind": "program",
+      "pulses": [
+        2064,
+        1500,
+        2204
+      ],
+      "xyz": [
+        130.62337359621057,
+        0,
+        38.66463345375614
+      ],
+      "note": "U axis mark at r=131 mm, V=0, letter height"
+    },
+    {
+      "name": "axis_mark_r165",
+      "kind": "program",
+      "pulses": [
+        2228,
+        1728,
+        2204
+      ],
+      "xyz": [
+        165.00801254597073,
+        0,
+        38.56073261154774
+      ],
+      "note": "U axis mark at r=165 mm, V=0, letter height"
+    }
+  ]
+}

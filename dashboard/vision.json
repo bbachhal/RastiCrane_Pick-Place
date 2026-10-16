@@ -1,0 +1,137 @@
+{
+  "imageSize": [
+    3024,
+    4032
+  ],
+  "tagsFound": [
+    0,
+    1,
+    2,
+    3,
+    5
+  ],
+  "notes": [
+    "Home direction taken from the midpoint of tags 0 and 1, which assumes they are mounted symmetrically on the holder."
+  ],
+  "homography": [
+    [
+      -0.0022694888050332446,
+      -0.13623846497516978,
+      265.3518965752285
+    ],
+    [
+      -0.13631254289640019,
+      0.0029138452854397764,
+      201.26925898863954
+    ],
+    [
+      -1.2380421366431952e-05,
+      4.152397748462572e-06,
+      1.0
+    ]
+  ],
+  "previewScale": 0.3637566137566138,
+  "homeAngleInTagFrame_deg": -0.09,
+  "arc": {
+    "leftEnd_mm": [
+      69.05,
+      55.3
+    ],
+    "rightEnd_mm": [
+      67.18,
+      -54.86
+    ],
+    "arcMid_mm": [
+      80.95,
+      -0.0
+    ],
+    "radius_mm": 124.64,
+    "center_mm": [
+      -43.67,
+      2.12
+    ],
+    "chordOnly": false
+  },
+  "objects": {
+    "5": {
+      "xy_mm": [
+        -0.02,
+        0.06
+      ],
+      "radius_mm": 0.06,
+      "azimuth_deg": 107.43,
+      "yaw_deg": 0.09,
+      "sideLength_mm": 50.0
+    },
+    "1": {
+      "xy_mm": [
+        67.18,
+        -54.86
+      ],
+      "radius_mm": 86.73,
+      "azimuth_deg": -39.24,
+      "yaw_deg": 48.89,
+      "sideLength_mm": 53.08
+    },
+    "0": {
+      "xy_mm": [
+        69.05,
+        55.3
+      ],
+      "radius_mm": 88.47,
+      "azimuth_deg": 38.69,
+      "yaw_deg": 35.47,
+      "sideLength_mm": 52.08
+    },
+    "3": {
+      "xy_mm": [
+        -72.89,
+        -133.81
+      ],
+      "radius_mm": 152.38,
+      "azimuth_deg": -118.58,
+      "yaw_deg": 88.49,
+      "sideLength_mm": 52.23
+    },
+    "2": {
+      "xy_mm": [
+        -70.24,
+        -66.73
+      ],
+      "radius_mm": 96.89,
+      "azimuth_deg": -136.47,
+      "yaw_deg": -91.06,
+      "sideLength_mm": 51.67
+    },
+    "ink": {
+      "xy_mm": [
+        1.89,
+        -99.35
+      ],
+      "radius_mm": 99.37,
+      "azimuth_deg": -88.91,
+      "clicked": true,
+      "fromTag": 2,
+      "offsetTag_mm": [
+        31.283,
+        72.719,
+        8.3
+      ]
+    },
+    "paper": {
+      "xy_mm": [
+        -70.79,
+        -131.74
+      ],
+      "radius_mm": 149.55,
+      "azimuth_deg": -118.25,
+      "clicked": true,
+      "fromTag": 3,
+      "offsetTag_mm": [
+        2.128,
+        -2.04,
+        -3.9
+      ]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+Numerical verification, 2026-10-09
+Independent Python/SciPy evaluation of the implemented mathematical method.
+Not a MATLAB runtime, AprilTag image, USB, or hardware test.
+
+PASS: HW4 table point [100,80] -> pixel [1780,560].
+PASS: HW4 height parallax = 16.216216216 mm; corrected point recovered.
+PASS: base reference at Z=3 mm recovers table-based translation.
+PASS: 100 tilted/translated synthetic cameras, 20 points each, varied heights.
+Maximum synthetic height-correction position error: 7.249e-12 mm.
+PASS: HW3 80/60 solution = [89.39842073  9.59833882] degrees; near/far unreachable rejected.
+PASS: current 80/80 IK at [160,25,80] -> angles [ 55.48693098 -29.5212925    8.88065915] degrees.
+PASS: proposed integer pulses = [1969, 1968, 1955] microseconds.
+Integer pulse MODEL residual = 0.07805944 mm.
+
+These near-zero synthetic errors establish numerical consistency only.
+Physical accuracy, tag detection on the user's new photo, MATLAB toolbox execution,
+and ESP32 serial operation must be checked on the user's setup.

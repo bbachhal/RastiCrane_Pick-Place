@@ -1,0 +1,368 @@
+{
+  "sourcePhoto": "C:\\Users\\bachh\\Downloads\\IMG_3231.JPG",
+  "matlabVersion": "24.2.0.2740171 (R2024b) Update 1",
+  "runFolder": "results\\20261013_155147_318",
+  "status": "CALIBRATED_ANALYSIS_PREVIEW_ONLY",
+  "cameraCalibrated": true,
+  "notes": [
+    "Four-point round trip checks algebra, not independent physical accuracy."
+  ],
+  "config": {
+    "tagFamily": "tag36h11",
+    "tagSize_mm": 50,
+    "calibrationFile": "calibration\\phoneCalibration.mat",
+    "outputRoot": "results",
+    "cornerOrder": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "baseTag": {
+      "id": 5,
+      "centerRobot_mm": [
+        -130,
+        0,
+        4
+      ],
+      "yawRobot_deg": 180
+    },
+    "maxPoseFit_px": 3,
+    "maxTagSizeError_mm": 3,
+    "maxTagShapeError_mm": 3,
+    "objects": [
+      {
+        "name": "inkSurfaceCenter",
+        "id": 2,
+        "tagHeight_mm": 4,
+        "targetOffsetTag_mm": [
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "name": "paperCenter",
+        "id": 3,
+        "tagHeight_mm": 4,
+        "targetOffsetTag_mm": [
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "name": "checkTag",
+        "id": 1,
+        "tagHeight_mm": 10,
+        "targetOffsetTag_mm": [
+          null,
+          null,
+          null
+        ]
+      }
+    ],
+    "cad": {
+      "paperSize_mm": [
+        215.9,
+        279.4
+      ],
+      "paperTop_mm": 0.1,
+      "inkFoamSize_mm": [
+        110,
+        70
+      ],
+      "inkSurface_mm": 5,
+      "mountSize_mm": [
+        80,
+        80,
+        3
+      ],
+      "rackTop_mm": 36.5,
+      "upperArm_mm": 80,
+      "forearm_mm": 80,
+      "shoulderForward_mm": 11.991791,
+      "shoulderAboveArmUnderside_mm": 54.98273
+    },
+    "ik": {
+      "upperArm_mm": 80,
+      "forearm_mm": 80,
+      "shoulderForward_mm": 12,
+      "shoulderHeight_mm": 60,
+      "toolForward_mm": 35,
+      "toolVertical_mm": -6.5,
+      "toolSideways_mm": 0,
+      "pulseFit_us": [
+        [
+          1500,
+          1900,
+          2000
+        ],
+        [
+          1500,
+          1900,
+          2000
+        ],
+        [
+          1900,
+          1950,
+          2000
+        ]
+      ],
+      "angleFit_deg": [
+        [
+          89,
+          61,
+          53
+        ],
+        [
+          -68,
+          -35,
+          -27
+        ],
+        [
+          0,
+          8,
+          17
+        ]
+      ],
+      "cartMin_us": [
+        1900,
+        1900,
+        1900
+      ],
+      "cartMax_us": [
+        2000,
+        2000,
+        2000
+      ],
+      "minHeight_mm": 40
+    }
+  },
+  "objects": [
+    {
+      "name": "inkSurfaceCenter",
+      "id": 2,
+      "status": "TAG_LOCATED_TARGET_OFFSET_REQUIRED",
+      "centerPixel_px": [
+        2395.9727886707951,
+        2176.0466543124612
+      ],
+      "tagCenterRobot_mm": [
+        -101.75617263418147,
+        -68.396993238229314,
+        4
+      ],
+      "tagYaw_deg": -89.726939005294682,
+      "sizeRms_mm": 0.59628518744277514,
+      "shapeRms_mm": 0.53155383742182183,
+      "targetRobot_mm": [
+        null,
+        null,
+        null
+      ],
+      "emptyMagnetIkAtPoint": []
+    },
+    {
+      "name": "paperCenter",
+      "id": 3,
+      "status": "TAG_LOCATED_TARGET_OFFSET_REQUIRED",
+      "centerPixel_px": [
+        1525.1657617775361,
+        2199.879771277283
+      ],
+      "tagCenterRobot_mm": [
+        -102.39800035704417,
+        66.02904799939887,
+        4
+      ],
+      "tagYaw_deg": 179.58737879946835,
+      "sizeRms_mm": 0.708806223748285,
+      "shapeRms_mm": 0.51733985968469,
+      "targetRobot_mm": [
+        null,
+        null,
+        null
+      ],
+      "emptyMagnetIkAtPoint": []
+    },
+    {
+      "name": "checkTag",
+      "id": 1,
+      "status": "TAG_LOCATED_TARGET_OFFSET_REQUIRED",
+      "centerPixel_px": [
+        2289.4708091052794,
+        1144.9209538414884
+      ],
+      "tagCenterRobot_mm": [
+        56.285884414884194,
+        -53.420573391653015,
+        10
+      ],
+      "tagYaw_deg": -131.07250544946584,
+      "sizeRms_mm": 0.43620708233526329,
+      "shapeRms_mm": 0.35743907607592168,
+      "targetRobot_mm": [
+        null,
+        null,
+        null
+      ],
+      "emptyMagnetIkAtPoint": []
+    }
+  ],
+  "tagIds": [
+    0,
+    1,
+    2,
+    3,
+    5
+  ],
+  "cornerUV_px": [
+    [
+      [
+        1579.0885009765627,
+        2054.7678222656255,
+        2239.679931640625,
+        1360.6353759765627,
+        1794.800048828125
+      ],
+      [
+        1392.5444335937502,
+        1166.6727294921873,
+        2335.08056640625,
+        2042.5463867187498,
+        2209.02490234375
+      ]
+    ],
+    [
+      [
+        1837.6705322265625,
+        2307.215087890625,
+        2563.337890625,
+        1371.329833984375,
+        1802.7364501953125
+      ],
+      [
+        1194.6237792968752,
+        1378.2861328124998,
+        2332.4240722656255,
+        2357.37646484375,
+        2527.846923828125
+      ]
+    ],
+    [
+      [
+        1630.7388916015623,
+        2527.823486328125,
+        2555.617431640625,
+        1689.2840576171873,
+        2124.92138671875
+      ],
+      [
+        924.89111328125,
+        1122.8309326171875,
+        2013.6021728515627,
+        2356.8190917968745,
+        2521.376953125
+      ]
+    ],
+    [
+      [
+        1364.9027099609373,
+        2271.2241210937505,
+        2230.960205078125,
+        1684.9625244140625,
+        2118.837646484375
+      ],
+      [
+        1129.7917480468748,
+        904.94830322265625,
+        2021.8673095703118,
+        2036.280395507812,
+        2202.8723144531255
+      ]
+    ]
+  ],
+  "referenceH": [
+    [
+      -0.00014967040845750317,
+      -0.0026746395710240765,
+      0.786522596793863
+    ],
+    [
+      -0.0027312569902189082,
+      3.0328553773688826E-5,
+      0.61754951534849556
+    ],
+    [
+      -4.6948506578398169E-8,
+      -9.1193028389824723E-9,
+      0.00040502202454865266
+    ]
+  ],
+  "referenceRoundTrip_mm": 2.0691316789454157E-13,
+  "camera": {
+    "rotation": [
+      [
+        -0.018181121683501,
+        -0.99976616599035184,
+        0.011707269334990517
+      ],
+      [
+        -0.99828471546485664,
+        0.018803432789758712,
+        0.055444186210742041
+      ],
+      [
+        -0.055651358326460808,
+        -0.010679150540811259,
+        -0.998393150046687
+      ]
+    ],
+    "translation_mm": [
+      -14.206118404908825,
+      -0.3914824469102296,
+      484.03808991290572
+    ],
+    "intrinsicMatrix": [
+      [
+        3146.9857359618504,
+        0,
+        2034.7483092657294
+      ],
+      [
+        0,
+        3159.5305512761652,
+        1525.8476604851573
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "centerRobot_mm": [
+      26.288283074905635,
+      -9.0263196877351675,
+      483.44833361078321
+    ],
+    "fitRms_px": 1.9851640437962128
+  },
+  "tableH": [
+    [
+      -170.45223786487173,
+      -3167.9792471762148,
+      940189.23308686481
+    ],
+    [
+      -3239.0265522884997,
+      43.115263499445007,
+      737331.48632801021
+    ],
+    [
+      -0.055651358326460808,
+      -0.010679150540811259,
+      484.03808991290572
+    ]
+  ]
+}

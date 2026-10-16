@@ -1,0 +1,479 @@
+{
+  "source": "Part Studio 1.glb",
+  "frame": "CAD origin = base_table_bottom centre = robot base; +Z up; mm",
+  "holderArc": {
+    "center_mm": [
+      6.49,
+      24.2
+    ],
+    "radius_mm": 124.64,
+    "fitRms_mm": 9.105,
+    "topZ_mm": 36.5,
+    "centerAzimuth_deg": 75.0,
+    "centerDistance_mm": 25.06
+  },
+  "parts": {
+    "base_table_bottom": {
+      "min": [
+        -39.98,
+        -40.01,
+        0.0
+      ],
+      "max": [
+        40.02,
+        39.99,
+        3.0
+      ],
+      "center": [
+        0.02,
+        -0.01,
+        1.5
+      ]
+    },
+    "8 1/2 x 11\" paper": {
+      "min": [
+        -306.81,
+        -168.62,
+        0.0
+      ],
+      "max": [
+        -90.91,
+        110.78,
+        0.1
+      ],
+      "center": [
+        -198.86,
+        -28.92,
+        0.05
+      ]
+    },
+    "Stamp holder": {
+      "min": [
+        -93.85,
+        12.02,
+        -0.1
+      ],
+      "max": [
+        143.09,
+        155.13,
+        36.5
+      ],
+      "center": [
+        24.62,
+        83.57,
+        18.2
+      ]
+    }
+  },
+  "holderSlots": {
+    "shelfZ_mm": 22.5,
+    "arcCenter_mm": [
+      6.49,
+      24.2
+    ],
+    "arcRadius_mm": 124.64,
+    "slots": [
+      {
+        "index": 0,
+        "center_mm": [
+          115.23,
+          49.84,
+          22.3
+        ],
+        "radiusFromBase_mm": 125.55,
+        "azimuthFromBase_deg": 23.39,
+        "angleOnArc_deg": 13.19,
+        "arcSpan_deg": [
+          11.62,
+          14.52
+        ],
+        "vertices": 20
+      },
+      {
+        "index": 1,
+        "center_mm": [
+          126.06,
+          60.16,
+          22.5
+        ],
+        "radiusFromBase_mm": 139.69,
+        "azimuthFromBase_deg": 25.51,
+        "angleOnArc_deg": 16.76,
+        "arcSpan_deg": [
+          16.1,
+          17.48
+        ],
+        "vertices": 10
+      },
+      {
+        "index": 2,
+        "center_mm": [
+          111.49,
+          64.63,
+          22.29
+        ],
+        "radiusFromBase_mm": 128.87,
+        "azimuthFromBase_deg": 30.1,
+        "angleOnArc_deg": 21.05,
+        "arcSpan_deg": [
+          20.36,
+          21.65
+        ],
+        "vertices": 29
+      },
+      {
+        "index": 3,
+        "center_mm": [
+          115.43,
+          73.44,
+          22.41
+        ],
+        "radiusFromBase_mm": 136.81,
+        "azimuthFromBase_deg": 32.47,
+        "angleOnArc_deg": 24.26,
+        "arcSpan_deg": [
+          23.04,
+          25.93
+        ],
+        "vertices": 23
+      },
+      {
+        "index": 4,
+        "center_mm": [
+          100.24,
+          80.03,
+          22.34
+        ],
+        "radiusFromBase_mm": 128.27,
+        "azimuthFromBase_deg": 38.6,
+        "angleOnArc_deg": 30.78,
+        "arcSpan_deg": [
+          29.55,
+          32.67
+        ],
+        "vertices": 52
+      },
+      {
+        "index": 5,
+        "center_mm": [
+          99.17,
+          89.26,
+          22.5
+        ],
+        "radiusFromBase_mm": 133.43,
+        "azimuthFromBase_deg": 41.99,
+        "angleOnArc_deg": 35.13,
+        "arcSpan_deg": [
+          34.22,
+          36.26
+        ],
+        "vertices": 16
+      },
+      {
+        "index": 6,
+        "center_mm": [
+          88.89,
+          95.73,
+          22.37
+        ],
+        "radiusFromBase_mm": 130.63,
+        "azimuthFromBase_deg": 47.12,
+        "angleOnArc_deg": 40.93,
+        "arcSpan_deg": [
+          38.94,
+          44.27
+        ],
+        "vertices": 60
+      },
+      {
+        "index": 7,
+        "center_mm": [
+          75.17,
+          104.97,
+          22.34
+        ],
+        "radiusFromBase_mm": 129.11,
+        "azimuthFromBase_deg": 54.39,
+        "angleOnArc_deg": 49.63,
+        "arcSpan_deg": [
+          47.92,
+          51.91
+        ],
+        "vertices": 50
+      },
+      {
+        "index": 8,
+        "center_mm": [
+          71.08,
+          112.41,
+          22.5
+        ],
+        "radiusFromBase_mm": 133.0,
+        "azimuthFromBase_deg": 57.69,
+        "angleOnArc_deg": 53.83,
+        "arcSpan_deg": [
+          53.13,
+          55.11
+        ],
+        "vertices": 16
+      },
+      {
+        "index": 9,
+        "center_mm": [
+          60.48,
+          117.94,
+          22.37
+        ],
+        "radiusFromBase_mm": 132.54,
+        "azimuthFromBase_deg": 62.85,
+        "angleOnArc_deg": 60.05,
+        "arcSpan_deg": [
+          57.3,
+          63.4
+        ],
+        "vertices": 60
+      },
+      {
+        "index": 10,
+        "center_mm": [
+          42.86,
+          121.97,
+          22.34
+        ],
+        "radiusFromBase_mm": 129.28,
+        "azimuthFromBase_deg": 70.64,
+        "angleOnArc_deg": 69.63,
+        "arcSpan_deg": [
+          67.65,
+          71.27
+        ],
+        "vertices": 52
+      },
+      {
+        "index": 11,
+        "center_mm": [
+          42.48,
+          139.42,
+          22.5
+        ],
+        "radiusFromBase_mm": 145.75,
+        "azimuthFromBase_deg": 73.06,
+        "angleOnArc_deg": 72.65,
+        "arcSpan_deg": [
+          72.53,
+          72.76
+        ],
+        "vertices": 8
+      },
+      {
+        "index": 12,
+        "center_mm": [
+          32.92,
+          141.98,
+          22.5
+        ],
+        "radiusFromBase_mm": 145.75,
+        "azimuthFromBase_deg": 76.94,
+        "angleOnArc_deg": 77.35,
+        "arcSpan_deg": [
+          77.24,
+          77.47
+        ],
+        "vertices": 8
+      },
+      {
+        "index": 13,
+        "center_mm": [
+          23.86,
+          127.06,
+          22.34
+        ],
+        "radiusFromBase_mm": 129.28,
+        "azimuthFromBase_deg": 79.36,
+        "angleOnArc_deg": 80.37,
+        "arcSpan_deg": [
+          78.73,
+          82.35
+        ],
+        "vertices": 52
+      },
+      {
+        "index": 14,
+        "center_mm": [
+          6.6,
+          132.38,
+          22.37
+        ],
+        "radiusFromBase_mm": 132.54,
+        "azimuthFromBase_deg": 87.15,
+        "angleOnArc_deg": 89.95,
+        "arcSpan_deg": [
+          86.6,
+          92.7
+        ],
+        "vertices": 60
+      },
+      {
+        "index": 15,
+        "center_mm": [
+          -5.35,
+          132.89,
+          22.5
+        ],
+        "radiusFromBase_mm": 133.0,
+        "azimuthFromBase_deg": 92.31,
+        "angleOnArc_deg": 96.17,
+        "arcSpan_deg": [
+          94.89,
+          96.87
+        ],
+        "vertices": 16
+      },
+      {
+        "index": 16,
+        "center_mm": [
+          -12.62,
+          128.49,
+          22.34
+        ],
+        "radiusFromBase_mm": 129.11,
+        "azimuthFromBase_deg": 95.61,
+        "angleOnArc_deg": 100.37,
+        "arcSpan_deg": [
+          98.09,
+          102.08
+        ],
+        "vertices": 50
+      },
+      {
+        "index": 17,
+        "center_mm": [
+          -29.12,
+          127.35,
+          22.37
+        ],
+        "radiusFromBase_mm": 130.63,
+        "azimuthFromBase_deg": 102.88,
+        "angleOnArc_deg": 109.07,
+        "arcSpan_deg": [
+          105.73,
+          111.06
+        ],
+        "vertices": 60
+      },
+      {
+        "index": 18,
+        "center_mm": [
+          -41.25,
+          126.89,
+          22.5
+        ],
+        "radiusFromBase_mm": 133.43,
+        "azimuthFromBase_deg": 108.01,
+        "angleOnArc_deg": 114.87,
+        "arcSpan_deg": [
+          113.74,
+          115.78
+        ],
+        "vertices": 16
+      },
+      {
+        "index": 19,
+        "center_mm": [
+          -46.95,
+          119.97,
+          22.36
+        ],
+        "radiusFromBase_mm": 128.83,
+        "azimuthFromBase_deg": 111.37,
+        "angleOnArc_deg": 119.15,
+        "arcSpan_deg": [
+          117.33,
+          120.45
+        ],
+        "vertices": 57
+      },
+      {
+        "index": 20,
+        "center_mm": [
+          -63.39,
+          115.08,
+          22.36
+        ],
+        "radiusFromBase_mm": 131.39,
+        "azimuthFromBase_deg": 118.85,
+        "angleOnArc_deg": 127.63,
+        "arcSpan_deg": [
+          124.07,
+          129.64
+        ],
+        "vertices": 58
+      },
+      {
+        "index": 21,
+        "center_mm": [
+          -79.09,
+          115.14,
+          22.5
+        ],
+        "radiusFromBase_mm": 139.69,
+        "azimuthFromBase_deg": 124.49,
+        "angleOnArc_deg": 133.24,
+        "arcSpan_deg": [
+          132.52,
+          133.9
+        ],
+        "vertices": 10
+      },
+      {
+        "index": 22,
+        "center_mm": [
+          -74.85,
+          100.6,
+          22.33
+        ],
+        "radiusFromBase_mm": 125.4,
+        "azimuthFromBase_deg": 126.65,
+        "angleOnArc_deg": 136.86,
+        "arcSpan_deg": [
+          135.48,
+          138.38
+        ],
+        "vertices": 24
+      }
+    ],
+    "note": "Clusters of holder-shelf vertices, taken as stamp pockets. Positions are in the CAD frame whose origin is the robot base plate. Confirm against a photo before trusting."
+  },
+  "arm": {
+    "source": "RASTICrane Assm, v0.1.glb",
+    "tableZ_mm": 16.4,
+    "shoulderServoHornZ_mm": 77.1,
+    "shoulderHeightAboveTable_mm": 60.7,
+    "yawAxisInArmCad_mm": [
+      11.1,
+      9.15
+    ],
+    "basePlate_mm": [
+      95.0,
+      145.0,
+      3.0
+    ],
+    "note": "Shoulder height corroborates the 60 mm user measurement. Link lengths a1/a2 are NOT recovered here: the CAD rods are diagonal members whose bounding boxes are not pivot-to-pivot distances. The effector in this CAD is a claw, not the magnet in use, so toolForward/toolVertical remain user measurements."
+  },
+  "holderModel": {
+    "arcCenter_mm": [
+      6.49,
+      24.2
+    ],
+    "arcRadius_mm": 124.64,
+    "arcSpan_deg": [
+      13.6,
+      136.4
+    ],
+    "symmetryAxis_deg": 75.0,
+    "shelfZ_mm": 22.5,
+    "topZ_mm": 36.5,
+    "pocketPitch_deg_estimate": 10.5,
+    "note": "Pocket features repeat every ~10.5 deg along the arc, symmetric about 75 deg, which is also the line through the robot base and the arc centre. Slot count is not readable from the mesh, so the dashboard spaces slots between the arc ends from the photo and you set the count."
+  }
+}

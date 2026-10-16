@@ -1,0 +1,4 @@
+name,tagId,status,tagX_mm,tagY_mm,tagZ_mm,tagYaw_deg,targetX_mm,targetY_mm,targetZ_mm
+inkSurfaceCenter,2,TAG_HEIGHT_REQUIRED,NaN,NaN,NaN,NaN,NaN,NaN,NaN
+paperCenter,3,TAG_HEIGHT_REQUIRED,NaN,NaN,NaN,NaN,NaN,NaN,NaN
+checkTag,1,TAG_HEIGHT_REQUIRED,NaN,NaN,NaN,NaN,NaN,NaN,NaN

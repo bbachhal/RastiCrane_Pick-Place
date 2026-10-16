@@ -1,0 +1,216 @@
+{
+  "sourcePhoto": "C:\\Users\\bachh\\Downloads\\IMG_3227.JPG",
+  "matlabVersion": "24.2.0.2740171 (R2024b) Update 1",
+  "runFolder": "results\\20261013_145232_345",
+  "status": "DETECTION_ONLY",
+  "cameraCalibrated": true,
+  "notes": [
+    "Set the fixed tag attachment pose relative to the robot yaw axis."
+  ],
+  "config": {
+    "tagFamily": "tag36h11",
+    "tagSize_mm": 50,
+    "calibrationFile": "calibration\\phoneCalibration.mat",
+    "outputRoot": "results",
+    "cornerOrder": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "baseTag": {
+      "id": 5,
+      "centerRobot_mm": [
+        null,
+        null,
+        null
+      ],
+      "yawRobot_deg": null
+    },
+    "maxPoseFit_px": 3,
+    "maxTagSizeError_mm": 3,
+    "maxTagShapeError_mm": 3,
+    "objects": [
+      {
+        "name": "inkSurfaceCenter",
+        "id": 2,
+        "tagHeight_mm": null,
+        "targetOffsetTag_mm": [
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "name": "paperCenter",
+        "id": 3,
+        "tagHeight_mm": null,
+        "targetOffsetTag_mm": [
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "name": "checkTag",
+        "id": 1,
+        "tagHeight_mm": null,
+        "targetOffsetTag_mm": [
+          null,
+          null,
+          null
+        ]
+      }
+    ],
+    "cad": {
+      "paperSize_mm": [
+        215.9,
+        279.4
+      ],
+      "paperTop_mm": 0.1,
+      "inkFoamSize_mm": [
+        110,
+        70
+      ],
+      "inkSurface_mm": 5,
+      "mountSize_mm": [
+        80,
+        80,
+        3
+      ],
+      "rackTop_mm": 36.5,
+      "upperArm_mm": 80,
+      "forearm_mm": 80,
+      "shoulderForward_mm": 11.991791,
+      "shoulderAboveArmUnderside_mm": 54.98273
+    },
+    "ik": {
+      "upperArm_mm": 80,
+      "forearm_mm": 80,
+      "shoulderForward_mm": 12,
+      "shoulderHeight_mm": 60,
+      "toolForward_mm": 35,
+      "toolVertical_mm": -6.5,
+      "toolSideways_mm": 0,
+      "pulseFit_us": [
+        [
+          1500,
+          1900,
+          2000
+        ],
+        [
+          1500,
+          1900,
+          2000
+        ],
+        [
+          1900,
+          1950,
+          2000
+        ]
+      ],
+      "angleFit_deg": [
+        [
+          89,
+          61,
+          53
+        ],
+        [
+          -68,
+          -35,
+          -27
+        ],
+        [
+          0,
+          8,
+          17
+        ]
+      ],
+      "cartMin_us": [
+        1900,
+        1900,
+        1900
+      ],
+      "cartMax_us": [
+        2000,
+        2000,
+        2000
+      ],
+      "minHeight_mm": 40
+    }
+  },
+  "objects": [],
+  "tagIds": [
+    0,
+    1,
+    2,
+    3,
+    5
+  ],
+  "cornerUV_px": [
+    [
+      [
+        1652.4906005859375,
+        2112.157470703125,
+        2598.88330078125,
+        1419.6076660156248,
+        2169.9704589843745
+      ],
+      [
+        1379.65576171875,
+        1173.2774658203125,
+        2010.457153320312,
+        2035.1496582031252,
+        2080.5957031249995
+      ]
+    ],
+    [
+      [
+        1908.9971923828123,
+        2360.50537109375,
+        2279.7841796875005,
+        1427.890991210937,
+        1851.1435546875
+      ],
+      [
+        1189.0908203125,
+        1382.1118164062502,
+        2013.2761230468748,
+        2351.4851074218755,
+        2082.0876464843741
+      ]
+    ],
+    [
+      [
+        1712.4599609374998,
+        2577.53759765625,
+        2280.38427734375,
+        1743.6795654296877,
+        1850.9342041015625
+      ],
+      [
+        923.09582519531239,
+        1129.6811523437502,
+        2333.6831054687505,
+        2350.0163574218741,
+        2410.517333984375
+      ]
+    ],
+    [
+      [
+        1449.6666259765623,
+        2324.58447265625,
+        2598.8896484375,
+        1739.3376464843755,
+        2174.1728515625
+      ],
+      [
+        1118.8314208984373,
+        917.36083984375,
+        2332.7729492187505,
+        2028.3254394531243,
+        2408.3735351562505
+      ]
+    ]
+  ]
+}

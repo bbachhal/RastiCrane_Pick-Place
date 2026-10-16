@@ -1,0 +1,567 @@
+/*
+  RASTICrane XYZ Test - checkpoint 2, 2026-09-28
+  ESP32-S3 Supermini / Arduino ESP32 core 3.x (user: 3.3.11).
+  Board: ESP32S3 Dev Module; USB CDC On Boot: Enabled.
+  Serial Monitor: 115200, Newline. Uses only built-in Arduino/LEDC APIs.
+
+  FIRST PHYSICAL VALIDATION VERSION. Angles are estimated from photographs.
+  It commands the CENTER OF THE MAGNET'S BOTTOM CONTACT FACE, with no stamp.
+  It does not perform vision, stamping, or obstacle-avoidance planning.
+
+  FRAME (all lengths mm): origin on the table directly under the base yaw axis;
+  +X points outward along the arm at BASE=1900 us; +Z points up; +Y is left
+  when looking outward along +X. Positive yaw is CCW viewed from above.
+  The origin is NOT necessarily the center of the rectangular wooden plate.
+
+  GEOMETRY SOURCES:
+    a1=80, a2=80: uploaded v0.1 STEP pivot-center measurements (rounded).
+    shoulder height=60: user's corrected physical measurement, NOT 36.
+    shoulder radial offset=12: STEP nominal, measured 11.992; not verified on
+      user's v1.0 build. It is the forward distance from yaw axis to shoulder
+      axis, not a third link. A constant radial miss may indicate this offset.
+    magnet offsets from lower wrist pivot: +35 forward, -6.5 vertical, 0 lateral.
+      User measured forward/drop and described magnet as approximately centered.
+      Fixed tip orientation follows the HW3 parallelogram model.
+
+  PHOTO CALIBRATION (provisional, rounded, no extrapolation):
+    M1 upper-arm angle: 1500us ~89deg, 1900us ~61deg, 2000us ~53deg.
+    M2 ABSOLUTE forearm angle: 1500us ~-68deg, 1900us ~-35deg, 2000us ~-27deg.
+    M3 yaw: 1900us=0deg, 1950us ~8deg, 2000us ~17deg.
+    Confirmed photo pulses: A=2000/2000/1900; B=1900/1500/1900;
+      C=2000/1900/1900. B did NOT have M2=2000.
+    The 1500us points support approximate home/ready path checks only.
+    Cartesian moves are restricted to 1900..2000us for ALL THREE motors.
+    Manual commands retain original wider pulse bounds, but do not prove
+      that every combination is mechanically safe.
+
+  HOME AND STARTUP:
+    Home remains 1500/1500/1900 us. With servo power OFF, support/place the arm
+    at that known pose before restoring power/resetting/uploading. No encoders
+    are present, so initial engagement cannot be ramped from an unknown pose.
+    Startup home pulses are staggered by 750ms. All subsequent moves ramp.
+    'stop' cancels motion and HOLDS current pulses; 'off'/'0' removes pulses:
+    THE ARM WILL DROP. Support first. After off, supported reset is required.
+
+  FIRST TEST (clear table, no stamp, one command at a time; wait for DONE):
+    hwcheck              -> HW3 math only, no movement
+    ready                -> ramp to 1950/1950/1950us, center of test range
+    where                -> model estimate about X=157.6,Y=22.1,Z=79.4mm
+    ik 160 25 80         -> preview only, NO movement
+    xyz 160 25 80        -> move magnet to that target (provisional calibration)
+    jog 0 0 3           -> request a 3mm upward move
+    jog 0 0 -3          -> return downward by 3mm
+    stop                 -> hold, never limp
+  Measure actual magnet position and send the complete log + measured XYZ.
+  If a target is rejected, send the reason; do not widen the limits yet.
+
+  COMMANDS:
+    help | status | where | cal | hwcheck | planar r z
+    ready | ik x y z | xyz x y z | jog dx dy dz
+    <motor> <us or ms> | <motor> zero | zero | stop
+    off | 0 | <motor> off | <motor> 0
+    Motor numbers: 1,2,3 or M1,M2,M3. dance is disabled.
+  'planar' remains a MATH-ONLY A-to-I calculation, not a magnet/table command.
+  'ik' reports ideal angles/pulses and whether they fit the current test range.
+  'xyz'/'jog' require a settled current pose inside that range (use ready).
+  Each Cartesian move is limited to 10mm from the current MODEL pose and
+  ramps all pulses together for at least 1 second, at <=5us per 20ms step.
+  This is joint interpolation, NOT a straight Cartesian-line trajectory.
+  Every scheduled pulse step is prechecked for the elbow-up branch and
+  estimated wrist/magnet/elbow height >=40mm. This is a nominal table-clearance
+  check, not full-link collision detection or a guarantee against obstacles.
+
+  HW3 IK: subtract shoulder/tool offsets; use relativeElbow=-acos(c), then
+  theta1=atan2(z,r)-atan2(a2*sin(relativeElbow),a1+a2*cos(relativeElbow));
+  theta2Abs=theta1+relativeElbow. Reconstruct with FK before accepting.
+  Angle->pulse conversion rejects extrapolation and out-of-test-range targets;
+  hardware writes are independently clamped to the original build limits.
+  PWM remains 50Hz/12bit: one duty count is ~4.88us. The software round-trip
+  residual is NOT a physical accuracy claim; backlash, photo calibration,
+  pulse quantization, and geometry offsets all contribute to real error.
+*/
+#include <Arduino.h>
+#include <esp_arduino_version.h>
+#include <math.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+#if ESP_ARDUINO_VERSION < ESP_ARDUINO_VERSION_VAL(3, 0, 0)
+#error "Requires ESP32 Arduino core 3.x, as in your working setup."
+#endif
+
+// Change measured geometry here, not scattered through the solver.
+const double upperArm_mm = 80.0;
+const double forearm_mm = 80.0;
+const double shoulderHeight_mm = 60.0;
+const double shoulderForward_mm = 12.0; // CAD nominal: verify if radial error persists
+const double toolForward_mm = 35.0;
+const double toolVertical_mm = -6.5;
+const double toolSideways_mm = 0.0; // positive to the left when looking outward
+const double degreesPerRadian = 180.0 / 3.14159265358979323846;
+const double minTestHeight_mm = 40.0;
+const double maxCartesianStep_mm = 10.0;
+
+const int servoCount = 3;
+const int servoPins[servoCount] = {8,9,10};
+const int home_us[servoCount] = {1500,1500,1900};
+const int ready_us[servoCount] = {1950,1950,1950};
+const int safeMin_us[servoCount] = {1500,1500,1650};
+const int safeMax_us[servoCount] = {2500,2500,2150};
+const int cartesianMin_us[servoCount] = {1900,1900,1900};
+const int cartesianMax_us[servoCount] = {2000,2000,2000};
+const double calibrationPulse_us[servoCount][3] = {
+  {1500,1900,2000}, {1500,1900,2000}, {1900,1950,2000}
+};
+const double calibrationAngle_deg[servoCount][3] = {
+  {89,61,53}, {-68,-35,-27}, {0,8,17}
+};
+const uint32_t sampleTime_ms = 20;
+const uint32_t startupSpacing_ms = 750;
+const int manualStep_us = 15;
+const int automaticStep_us = 5;
+const int minimumMoveSteps = 50; // at least 1 second
+
+int current_us[servoCount] = {0,0,0};
+int target_us[servoCount] = {0,0,0};
+int rampStart_us[servoCount] = {0,0,0};
+bool attached[servoCount] = {false,false,false};
+bool bootStarted = false;
+bool startupActive = false;
+bool moving = false;
+bool automaticActive = false;
+int startupIndex = 0;
+int rampIndex = 0;
+int rampSteps = 0;
+uint32_t lastStep_ms = 0;
+uint32_t lastStartup_ms = 0;
+char lineBuffer[128];
+size_t lineLength = 0;
+bool discardLine = false;
+
+void writePulse(int motor, int pulse_us) {
+  if (!attached[motor]) return;
+  if (pulse_us == 0) { ledcWrite(servoPins[motor],0); return; }
+  pulse_us = constrain(pulse_us,500,2500);
+  pulse_us = constrain(pulse_us,safeMin_us[motor],safeMax_us[motor]);
+  const uint32_t duty = (static_cast<uint32_t>(pulse_us)*4095U)/20000U;
+  ledcWrite(servoPins[motor],duty);
+}
+
+bool parseNumber(const char* token, double &value) {
+  char* end = nullptr;
+  value = strtod(token,&end);
+  return end != token && *end == '\0' && isfinite(value);
+}
+
+// Interpolate only inside the supplied calibration intervals. Never extrapolate.
+bool interpolate(double value, const double input[3], const double output[3], double &result) {
+  if (!isfinite(value)) return false;
+  for (int j=0;j<2;++j) {
+    const double low = fmin(input[j],input[j+1]);
+    const double high = fmax(input[j],input[j+1]);
+    if (value >= low-1e-8 && value <= high+1e-8 && input[j]!=input[j+1]) {
+      const double fraction = fmax(0.0,fmin(1.0,(value-input[j])/(input[j+1]-input[j])));
+      result = output[j]+fraction*(output[j+1]-output[j]);
+      return true;
+    }
+  }
+  return false;
+}
+
+bool pulsesToAngles(const int pulses_us[3], double angles_deg[3]) {
+  for (int i=0;i<3;++i)
+    if (!interpolate(pulses_us[i],calibrationPulse_us[i],calibrationAngle_deg[i],angles_deg[i]))
+      return false;
+  return true;
+}
+
+// angles_deg is in motor order: upper arm, ABSOLUTE forearm, base yaw.
+void forwardKinematics(const double angles_deg[3], double point_mm[3]) {
+  const double shoulder_rad = angles_deg[0]/degreesPerRadian;
+  const double forearm_rad = angles_deg[1]/degreesPerRadian;
+  const double yaw_rad = angles_deg[2]/degreesPerRadian;
+  const double radius_mm = shoulderForward_mm+upperArm_mm*cos(shoulder_rad)
+                        +forearm_mm*cos(forearm_rad)+toolForward_mm;
+  point_mm[0] = radius_mm*cos(yaw_rad)-toolSideways_mm*sin(yaw_rad);
+  point_mm[1] = radius_mm*sin(yaw_rad)+toolSideways_mm*cos(yaw_rad);
+  point_mm[2] = shoulderHeight_mm+upperArm_mm*sin(shoulder_rad)
+              +forearm_mm*sin(forearm_rad)+toolVertical_mm;
+}
+
+bool pointFromPulses(const int pulses_us[3], double point_mm[3]) {
+  double angles_deg[3];
+  if (!pulsesToAngles(pulses_us,angles_deg)) return false;
+  forwardKinematics(angles_deg,point_mm);
+  return true;
+}
+
+bool planarIk(double r_mm, double z_mm, double a1_mm, double a2_mm,
+              double &shoulder_rad, double &forearmAbs_rad) {
+  if (!isfinite(r_mm) || !isfinite(z_mm) || !isfinite(a1_mm) ||
+      !isfinite(a2_mm) || a1_mm<=0 || a2_mm<=0) return false;
+  const double distance_mm = hypot(r_mm,z_mm);
+  if (!isfinite(distance_mm) || distance_mm<1e-6) return false;
+  double cosineElbow = (r_mm*r_mm+z_mm*z_mm-a1_mm*a1_mm-a2_mm*a2_mm)/(2*a1_mm*a2_mm);
+  if (!isfinite(cosineElbow) || cosineElbow < -1.0-1e-10 || cosineElbow > 1.0+1e-10)
+    return false;
+  cosineElbow=fmax(-1.0,fmin(1.0,cosineElbow)); // numerical roundoff only
+  const double relativeElbow_rad=-acos(cosineElbow); // HW3 elbow-up branch
+  shoulder_rad=atan2(z_mm,r_mm)-atan2(a2_mm*sin(relativeElbow_rad),
+                                      a1_mm+a2_mm*cos(relativeElbow_rad));
+  forearmAbs_rad=shoulder_rad+relativeElbow_rad;
+  return isfinite(shoulder_rad) && isfinite(forearmAbs_rad);
+}
+
+bool rasticraneIk(const double point_mm[3], double angles_deg[3]) {
+  for (int i=0;i<3;++i) if (!isfinite(point_mm[i])) return false;
+  const double rho_mm=hypot(point_mm[0],point_mm[1]);
+  if (!isfinite(rho_mm) || rho_mm<=fabs(toolSideways_mm)+1e-6) return false;
+  const double radius_mm=sqrt(rho_mm*rho_mm-toolSideways_mm*toolSideways_mm);
+  const double yaw_rad=atan2(point_mm[1],point_mm[0])-atan2(toolSideways_mm,radius_mm);
+  const double wristR_mm=radius_mm-shoulderForward_mm-toolForward_mm;
+  const double wristZ_mm=point_mm[2]-shoulderHeight_mm-toolVertical_mm;
+  // The initial test uses only the outward-reaching assembly.
+  if (wristR_mm<=0) return false;
+  double shoulder_rad, forearmAbs_rad;
+  if (!planarIk(wristR_mm,wristZ_mm,upperArm_mm,forearm_mm,shoulder_rad,forearmAbs_rad))
+    return false;
+  angles_deg[0]=shoulder_rad*degreesPerRadian;
+  angles_deg[1]=forearmAbs_rad*degreesPerRadian;
+  angles_deg[2]=yaw_rad*degreesPerRadian;
+  double reconstructed_mm[3];
+  forwardKinematics(angles_deg,reconstructed_mm);
+  double errorSquared=0;
+  for (int i=0;i<3;++i) errorSquared+=pow(reconstructed_mm[i]-point_mm[i],2);
+  return isfinite(errorSquared) && errorSquared<1e-8;
+}
+
+bool inCartesianRange(const int pulses_us[3]) {
+  for (int i=0;i<3;++i)
+    if (pulses_us[i]<cartesianMin_us[i] || pulses_us[i]>cartesianMax_us[i]) return false;
+  return true;
+}
+
+bool allOnAndIdle() {
+  if (startupActive || moving) {
+    Serial.println("Wait for DONE, or type stop to hold before a new automatic move."); return false;
+  }
+  for (int i=0;i<3;++i) if (!attached[i] || current_us[i]==0) {
+    Serial.println("A motor is off. Supported home placement and reset required."); return false;
+  }
+  return true;
+}
+
+// Check only nominal endpoint heights and branch. No obstacle map is present.
+bool hasNominalClearance(const int pulses_us[3]) {
+  double angles_deg[3], point_mm[3];
+  if (!pulsesToAngles(pulses_us,angles_deg)) return false;
+  const double relative_deg=angles_deg[1]-angles_deg[0];
+  if (relative_deg < -175 || relative_deg > -5) return false;
+  forwardKinematics(angles_deg,point_mm);
+  const double elbowZ_mm=shoulderHeight_mm+upperArm_mm*sin(angles_deg[0]/degreesPerRadian);
+  const double wristZ_mm=point_mm[2]-toolVertical_mm;
+  return point_mm[2]>=minTestHeight_mm && elbowZ_mm>=minTestHeight_mm &&
+         wristZ_mm>=minTestHeight_mm;
+}
+
+void printStatus() {
+  Serial.printf("Commanded M1/M2/base: %d / %d / %d us\n",current_us[0],current_us[1],current_us[2]);
+  Serial.printf("Targets: %d / %d / %d us; startup=%s; moving=%s\n",
+                target_us[0],target_us[1],target_us[2],startupActive?"active":"done",moving?"yes":"no");
+  double point_mm[3];
+  if (pointFromPulses(current_us,point_mm)) {
+    Serial.printf("MODEL magnet XYZ: %.2f / %.2f / %.2f mm\n",point_mm[0],point_mm[1],point_mm[2]);
+    Serial.printf("Cartesian test-range pose: %s\n",inCartesianRange(current_us)?"YES":"NO (use ready)");
+  } else Serial.println("MODEL XYZ unavailable: pulses off or outside photo calibration.");
+  Serial.println("No encoder feedback. MODEL XYZ is an estimate, not a physical measurement.");
+}
+
+void printHelp() {
+  Serial.println("RASTICrane XYZ TEST: provisional photo calibration; mm; empty magnet.");
+  Serial.println("help | status/where | cal | hwcheck | planar r z (math only)");
+  Serial.println("ready -> 1950/1950/1950us; ik x y z previews; xyz x y z moves; jog dx dy dz moves.");
+  Serial.println("XYZ moves: 1900..2000us only, <=10mm per move, >=40mm model clearance.");
+  Serial.println("<motor> <us/ms> | zero | <motor> zero | stop (HOLD)");
+  Serial.println("off/0 or <motor> off/0: LIMP - THE ARM WILL DROP. Support first.");
+  Serial.println("After off: supported home placement + reset required. dance disabled.");
+}
+
+void printCalibration() {
+  Serial.printf("Geometry mm: a1=%.2f a2=%.2f shoulderHeight=%.2f shoulderForward=%.2f\n",
+    upperArm_mm,forearm_mm,shoulderHeight_mm,shoulderForward_mm);
+  Serial.printf("Magnet offsets mm: forward=%.2f vertical=%.2f sideways=%.2f\n",
+    toolForward_mm,toolVertical_mm,toolSideways_mm);
+  for (int i=0;i<3;++i) for (int j=0;j<3;++j)
+    Serial.printf("M%d photo fit: %.0f us -> %.2f deg\n",i+1,calibrationPulse_us[i][j],calibrationAngle_deg[i][j]);
+  Serial.println("Shoulder forward offset is from old CAD; height/tool offsets are user measurements.");
+  Serial.println("Angles are PHOTO ESTIMATES. Physical accuracy and repeatability need measurement.");
+}
+
+void holdPosition() {
+  startupActive=false; automaticActive=false; moving=false;
+  for (int i=0;i<3;++i) target_us[i]=current_us[i];
+  Serial.println("STOP: holding last commanded pulses. Pending startup/move cancelled.");
+}
+
+int pulseAtStep(int start_us, int finish_us, int step, int steps) {
+  return start_us+static_cast<int>(lround(static_cast<double>(finish_us-start_us)*step/steps));
+}
+
+// Precheck the exact quantized pulse schedule that loop() will execute.
+bool scheduleAutomatic(const int finish_us[3], bool requireCartesianRange) {
+  if (!allOnAndIdle()) return false;
+  int largestChange_us=0;
+  for (int i=0;i<3;++i) {
+    if (finish_us[i]<safeMin_us[i] || finish_us[i]>safeMax_us[i]) {
+      Serial.println("REJECTED: build pulse bound. No movement."); return false;
+    }
+    const int change_us=abs(finish_us[i]-current_us[i]);
+    if (change_us>largestChange_us) largestChange_us=change_us;
+  }
+  int steps=(largestChange_us+automaticStep_us-1)/automaticStep_us;
+  if (steps<minimumMoveSteps) steps=minimumMoveSteps;
+  for (int step=0;step<=steps;++step) {
+    int sample_us[3];
+    for (int i=0;i<3;++i) sample_us[i]=pulseAtStep(current_us[i],finish_us[i],step,steps);
+    if ((requireCartesianRange && !inCartesianRange(sample_us)) || !hasNominalClearance(sample_us)) {
+      Serial.println("REJECTED: path outside test range, photo fit, branch, or model clearance.");
+      Serial.println("No movement. Send the status/log instead of widening limits."); return false;
+    }
+  }
+  for (int i=0;i<3;++i) { rampStart_us[i]=current_us[i]; target_us[i]=finish_us[i]; }
+  rampSteps=steps; rampIndex=0; automaticActive=true; moving=true;
+  lastStep_ms=millis();
+  Serial.printf("Ramping M1/M2/base -> %d/%d/%d us in at least %lu ms. stop holds.\n",
+    finish_us[0],finish_us[1],finish_us[2],static_cast<unsigned long>(steps*sampleTime_ms));
+  return true;
+}
+
+bool previewTarget(const double point_mm[3], int finish_us[3]) {
+  double angles_deg[3];
+  if (!rasticraneIk(point_mm,angles_deg)) {
+    Serial.println("REJECTED: unreachable, non-finite, indeterminate, or non-outward target."); return false;
+  }
+  Serial.printf("Target magnet XYZ: %.2f / %.2f / %.2f mm\n",point_mm[0],point_mm[1],point_mm[2]);
+  Serial.printf("HW3 angles: yaw=%.3f shoulder=%.3f forearmABS=%.3f deg\n",
+    angles_deg[2],angles_deg[0],angles_deg[1]);
+  for (int i=0;i<3;++i) {
+    double pulse_us;
+    if (!interpolate(angles_deg[i],calibrationAngle_deg[i],calibrationPulse_us[i],pulse_us)) {
+      Serial.printf("REJECTED: M%d angle outside photo calibration; no extrapolation.\n",i+1); return false;
+    }
+    if (pulse_us<cartesianMin_us[i]-1e-7 || pulse_us>cartesianMax_us[i]+1e-7) {
+      Serial.printf("REJECTED: M%d would need %.2f us; XYZ test bound is %d..%d us.\n",
+        i+1,pulse_us,cartesianMin_us[i],cartesianMax_us[i]); return false;
+    }
+    finish_us[i]=static_cast<int>(lround(pulse_us));
+  }
+  if (!hasNominalClearance(finish_us)) {
+    Serial.println("REJECTED: nominal height/branch check failed."); return false;
+  }
+  Serial.printf("Proposed pulses M1/M2/base: %d / %d / %d us\n",finish_us[0],finish_us[1],finish_us[2]);
+  double rounded_mm[3]; pointFromPulses(finish_us,rounded_mm);
+  double residual_mm=0;
+  for (int i=0;i<3;++i) residual_mm+=pow(rounded_mm[i]-point_mm[i],2);
+  Serial.printf("Integer-pulse MODEL residual: %.4f mm (not measured accuracy).\n",sqrt(residual_mm));
+  return true;
+}
+
+void moveCartesian(const double point_mm[3]) {
+  if (!allOnAndIdle()) return;
+  if (!inCartesianRange(current_us)) {
+    Serial.println("REJECTED: current pose outside small XYZ test range. Use ready first."); return;
+  }
+  double currentPoint_mm[3];
+  if (!pointFromPulses(current_us,currentPoint_mm)) return;
+  double distanceSquared=0;
+  for (int i=0;i<3;++i) distanceSquared+=pow(point_mm[i]-currentPoint_mm[i],2);
+  if (!isfinite(distanceSquared) || distanceSquared>maxCartesianStep_mm*maxCartesianStep_mm+1e-8) {
+    Serial.println("REJECTED: first-test moves must be <=10mm from current MODEL XYZ."); return;
+  }
+  int finish_us[3];
+  if (previewTarget(point_mm,finish_us)) scheduleAutomatic(finish_us,true);
+}
+
+void printPlanar(double r_mm, double z_mm, double a1_mm, double a2_mm) {
+  double shoulder_rad, forearmAbs_rad;
+  if (!planarIk(r_mm,z_mm,a1_mm,a2_mm,shoulder_rad,forearmAbs_rad)) {
+    Serial.println("REJECTED: planar target unreachable/indeterminate. No movement."); return;
+  }
+  const double fkR_mm=a1_mm*cos(shoulder_rad)+a2_mm*cos(forearmAbs_rad);
+  const double fkZ_mm=a1_mm*sin(shoulder_rad)+a2_mm*sin(forearmAbs_rad);
+  Serial.printf("MATH ONLY A-to-I: shoulder=%.4f forearmABS=%.4f deg; FK residual=%.8f mm\n",
+    shoulder_rad*degreesPerRadian,forearmAbs_rad*degreesPerRadian,hypot(fkR_mm-r_mm,fkZ_mm-z_mm));
+}
+
+void homeworkCheck() {
+  double sh,el;
+  bool ok=planarIk(60,90,80,60,sh,el);
+  ok=ok && fabs(sh*degreesPerRadian-89.400)<.02 && fabs(el*degreesPerRadian-9.600)<.02;
+  double otherSh,otherEl;
+  ok=ok && !planarIk(150,0,80,60,otherSh,otherEl) && !planarIk(10,10,80,60,otherSh,otherEl);
+  Serial.println(ok?"HW3 C2/C3/C4: PASS":"HW3 C2/C3/C4: FAIL");
+  Serial.println("HW example uses 80/60mm; this arm uses nominal 80/80mm. NO MOVEMENT.");
+  printPlanar(60,90,80,60);
+}
+
+void setManualTarget(int motor, int pulse_us) {
+  if (current_us[motor]==0) {
+    Serial.println("Motor off. Supported home placement and reset required."); return;
+  }
+  if (automaticActive) holdPosition();
+  const int bounded_us=constrain(pulse_us,safeMin_us[motor],safeMax_us[motor]);
+  if (bounded_us!=pulse_us) Serial.printf("Manual command clamped to %d us.\n",bounded_us);
+  target_us[motor]=bounded_us; moving=true;
+  Serial.printf("MANUAL M%d -> %d us. Cartesian clearance checks do not apply.\n",motor+1,bounded_us);
+}
+
+void handleCommand(char* line) {
+  char* tokens[5]; int count=0;
+  for (char* p=strtok(line," \t\r");p!=nullptr;p=strtok(nullptr," \t\r")) {
+    if (count==5) { Serial.println("Too many arguments; no action."); return; }
+    for (char* q=p;*q;++q) *q=static_cast<char>(tolower(static_cast<unsigned char>(*q)));
+    tokens[count++]=p;
+  }
+  if (!count) return;
+  const char* cmd=tokens[0];
+  if (count==1 && !strcmp(cmd,"stop")) { holdPosition(); return; }
+  if (count==1 && (!strcmp(cmd,"off") || !strcmp(cmd,"0"))) {
+    holdPosition();
+    for (int i=0;i<3;++i) { current_us[i]=target_us[i]=0; writePulse(i,0); }
+    Serial.println("ALL PULSES OFF: LIMP - THE ARM WILL DROP."); return;
+  }
+  if (count==1 && (!strcmp(cmd,"status") || !strcmp(cmd,"where"))) { printStatus(); return; }
+  if (count==1 && !strcmp(cmd,"help")) { printHelp(); return; }
+  if (count==1 && !strcmp(cmd,"cal")) { printCalibration(); return; }
+  if (count==1 && !strcmp(cmd,"hwcheck")) { homeworkCheck(); return; }
+  if (count==1 && !strcmp(cmd,"dance")) { Serial.println("dance disabled in XYZ test."); return; }
+  if (count==3 && !strcmp(cmd,"planar")) {
+    double r_mm,z_mm;
+    if (!parseNumber(tokens[1],r_mm) || !parseNumber(tokens[2],z_mm)) {
+      Serial.println("Invalid finite mm values; no action."); return;
+    }
+    printPlanar(r_mm,z_mm,upperArm_mm,forearm_mm); return;
+  }
+  if (count==4 && (!strcmp(cmd,"ik") || !strcmp(cmd,"xyz") || !strcmp(cmd,"jog"))) {
+    double point_mm[3];
+    for (int i=0;i<3;++i) if (!parseNumber(tokens[i+1],point_mm[i])) {
+      Serial.println("Invalid finite mm values; no action."); return;
+    }
+    if (!strcmp(cmd,"ik")) {
+      int finish_us[3]; previewTarget(point_mm,finish_us);
+      Serial.println("PREVIEW ONLY: no movement. Current pose/path checked only by xyz/jog."); return;
+    }
+    if (!strcmp(cmd,"jog")) {
+      if (!allOnAndIdle()) return;
+      double currentPoint_mm[3];
+      if (!pointFromPulses(current_us,currentPoint_mm)) {
+        Serial.println("No MODEL pose available. Use ready after supported reset if needed."); return;
+      }
+      for (int i=0;i<3;++i) point_mm[i]+=currentPoint_mm[i];
+    }
+    moveCartesian(point_mm); return;
+  }
+  // Per-motor off must remain available during startup as well as during moves.
+  const char* motorText=cmd;
+  if (*motorText=='m') ++motorText;
+  const bool isMotor=strlen(motorText)==1 && *motorText>='1' && *motorText<='3';
+  if (count==2 && isMotor && (!strcmp(tokens[1],"off") || !strcmp(tokens[1],"0"))) {
+    const int motor=*motorText-'1';
+    holdPosition(); current_us[motor]=target_us[motor]=0; writePulse(motor,0);
+    Serial.printf("M%d OFF: LIMP - THE ARM MAY DROP. Other motors hold.\n",motor+1); return;
+  }
+  if (startupActive) { Serial.println("Wait for startup; stop/off remain available."); return; }
+  if (count==1 && !strcmp(cmd,"ready")) {
+    scheduleAutomatic(ready_us,false); return;
+  }
+  if (count==1 && !strcmp(cmd,"zero")) {
+    for (int i=0;i<3;++i) if (current_us[i]==0) {
+      Serial.println("Home refused: a motor is off; supported reset required."); return;
+    }
+    if (automaticActive) holdPosition();
+    for (int i=0;i<3;++i) setManualTarget(i,home_us[i]);
+    return;
+  }
+  if (count!=2 || !isMotor) { Serial.println("Unknown command. Type help."); return; }
+  const int motor=*motorText-'1';
+  if (!strcmp(tokens[1],"zero")) { setManualTarget(motor,home_us[motor]); return; }
+  double pulseInput;
+  if (!parseNumber(tokens[1],pulseInput)) { Serial.println("Invalid number; no action."); return; }
+  if (pulseInput>=.5 && pulseInput<=2.5) pulseInput*=1000;
+  if (pulseInput<500 || pulseInput>2500) {
+    Serial.println("Input outside 500..2500us / 0.5..2.5ms; no action."); return;
+  }
+  setManualTarget(motor,static_cast<int>(lround(pulseInput)));
+}
+
+void beginHardware() {
+  bootStarted=true; printHelp();
+  bool allAttached=true;
+  for (int i=0;i<3;++i) {
+    attached[i]=ledcAttach(servoPins[i],50,12);
+    if (!attached[i]) allAttached=false;
+    writePulse(i,0);
+  }
+  if (!allAttached) { Serial.println("PWM ATTACH FAILED. No startup pulses."); return; }
+  startupActive=true; lastStartup_ms=millis()-startupSpacing_ms;
+  Serial.println("Staggered startup home: 1500 / 1500 / 1900 us.");
+}
+
+void setup() { Serial.begin(115200); }
+
+void loop() {
+  if (!bootStarted) {
+    if (!Serial && millis()<4000) return;
+    beginHardware();
+  }
+  // No blocking Serial timeout. Process a bounded number of bytes per loop.
+  for (int n=0;n<64 && Serial.available()>0;++n) {
+    const char c=static_cast<char>(Serial.read());
+    if (c=='\n') {
+      if (!discardLine) { lineBuffer[lineLength]='\0'; handleCommand(lineBuffer); }
+      else Serial.println("Line too long: discarded; no command executed.");
+      lineLength=0; discardLine=false;
+    } else if (!discardLine) {
+      if (lineLength<sizeof(lineBuffer)-1) lineBuffer[lineLength++]=c;
+      else { discardLine=true; lineLength=0; }
+    }
+  }
+  const uint32_t now_ms=millis();
+  if (startupActive && now_ms-lastStartup_ms>=startupSpacing_ms) {
+    lastStartup_ms=now_ms;
+    current_us[startupIndex]=target_us[startupIndex]=home_us[startupIndex];
+    writePulse(startupIndex,current_us[startupIndex]);
+    ++startupIndex;
+    if (startupIndex==3) {
+      startupActive=false;
+      Serial.println("Startup home pulses applied. Allow settling. Use hwcheck, then ready.");
+    }
+  }
+  if (now_ms-lastStep_ms<sampleTime_ms) return;
+  lastStep_ms=now_ms;
+  if (automaticActive) {
+    ++rampIndex;
+    for (int i=0;i<3;++i) {
+      current_us[i]=pulseAtStep(rampStart_us[i],target_us[i],rampIndex,rampSteps);
+      writePulse(i,current_us[i]);
+    }
+    if (rampIndex>=rampSteps) automaticActive=false;
+  } else {
+    for (int i=0;i<3;++i) {
+      if (current_us[i]==0 || target_us[i]==0) continue;
+      const int delta_us=target_us[i]-current_us[i];
+      if (delta_us!=0) {
+        current_us[i]+=constrain(delta_us,-manualStep_us,manualStep_us);
+        writePulse(i,current_us[i]);
+      }
+    }
+  }
+  bool remaining=false;
+  for (int i=0;i<3;++i) if (current_us[i]!=target_us[i]) remaining=true;
+  if (moving && !automaticActive && !remaining) {
+    moving=false;
+    Serial.println("DONE sending ramped pulses. Allow settling; physical arrival is NOT measured.");
+    printStatus();
+  }
+}
